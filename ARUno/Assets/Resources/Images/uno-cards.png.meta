@@ -1,0 +1,1023 @@
+fileFormatVersion: 2
+guid: f1b798b8f3c64c549bc178e68d5ca7c1
+timeCreated: 1477403944
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: red1
+    21300002: red2
+    21300004: red3
+    21300006: red4
+    21300008: red5
+    21300010: red6
+    21300012: red7
+    21300014: red8
+    21300016: red9
+    21300018: red0
+    21300020: yellow1
+    21300022: yellow2
+    21300024: yellow3
+    21300026: yellow4
+    21300028: yellow5
+    21300030: yellow6
+    21300032: yellow7
+    21300034: yellow8
+    21300036: yellow9
+    21300038: yellow0
+    21300040: uno-cards_20
+    21300042: uno-cards_21
+    21300044: uno-cards_22
+    21300046: uno-cards_23
+    21300048: uno-cards_24
+    21300050: uno-cards_25
+    21300052: uno-cards_26
+    21300054: uno-cards_27
+    21300056: uno-cards_28
+    21300058: uno-cards_29
+    21300060: uno-cards_30
+    21300062: uno-cards_31
+    21300064: uno-cards_32
+    21300066: uno-cards_33
+    21300068: uno-cards_34
+    21300070: uno-cards_35
+    21300072: uno-cards_36
+    21300074: uno-cards_37
+    21300076: uno-cards_38
+    21300078: uno-cards_39
+    21300080: uno-cards_40
+    21300082: uno-cards_41
+    21300084: uno-cards_42
+    21300086: uno-cards_43
+    21300088: uno-cards_44
+    21300090: uno-cards_45
+    21300092: uno-cards_46
+    21300094: uno-cards_47
+    21300096: uno-cards_48
+    21300098: uno-cards_49
+    21300100: uno-cards_50
+    21300102: uno-cards_51
+    21300104: uno-cards_52
+    21300106: uno-cards_53
+    21300108: uno-cards_54
+    21300110: uno-cards_55
+    21300112: uno-cards_56
+    21300114: uno-cards_57
+    21300116: uno-cards_58
+    21300118: uno-cards_59
+    21300120: uno-cards_60
+    21300122: uno-cards_61
+    21300124: uno-cards_62
+    21300126: uno-cards_63
+    21300128: uno-cards_64
+    21300130: uno-cards_65
+    21300132: uno-cards_66
+    21300134: uno-cards_67
+    21300136: uno-cards_68
+    21300138: uno-cards_69
+    21300140: uno-cards_70
+    21300142: uno-cards_71
+    21300144: uno-cards_72
+    21300146: uno-cards_73
+    21300148: uno-cards_74
+    21300150: uno-cards_75
+    21300152: uno-cards_76
+    21300154: uno-cards_77
+    21300156: uno-cards_78
+    21300158: uno-cards_79
+    21300160: uno-cards_80
+    21300162: uno-cards_81
+    21300164: uno-cards_82
+    21300166: uno-cards_83
+    21300168: uno-cards_84
+    21300170: uno-cards_85
+    21300172: uno-cards_86
+    21300174: uno-cards_87
+    21300176: uno-cards_88
+    21300178: uno-cards_89
+    21300180: uno-cards_90
+    21300182: uno-cards_91
+    21300184: uno-cards_92
+    21300186: uno-cards_93
+    21300188: uno-cards_94
+    21300190: uno-cards_95
+    21300192: uno-cards_96
+    21300194: uno-cards_97
+    21300196: uno-cards_98
+    21300198: uno-cards_99
+    21300200: uno-cards_100
+    21300202: uno-cards_101
+    21300204: uno-cards_102
+    21300206: uno-cards_103
+    21300208: uno-cards_104
+    21300210: uno-cards_105
+    21300212: uno-cards_106
+    21300214: uno-cards_107
+    21300216: uno-cards_108
+    21300218: uno-cards_109
+    21300220: uno-cards_110
+    21300222: uno-cards_111
+    21300224: uno-cards_0
+    21300226: uno-cards_1
+    21300228: uno-cards_2
+    21300230: uno-cards_3
+    21300232: uno-cards_4
+    21300234: uno-cards_5
+    21300236: uno-cards_6
+    21300238: uno-cards_7
+    21300240: uno-cards_8
+    21300242: uno-cards_9
+    21300244: uno-cards_10
+    21300246: uno-cards_11
+    21300248: uno-cards_12
+    21300250: uno-cards_13
+    21300252: uno-cards_14
+    21300254: uno-cards_15
+    21300256: uno-cards_16
+    21300258: uno-cards_17
+    21300260: uno-cards_18
+    21300262: uno-cards_19
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 486
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: uno-cards_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5313
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_1
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 5313
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_2
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 5313
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_3
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 5313
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_4
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 5313
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_5
+      rect:
+        serializedVersion: 2
+        x: 2430
+        y: 5313
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_6
+      rect:
+        serializedVersion: 2
+        x: 2916
+        y: 5313
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_7
+      rect:
+        serializedVersion: 2
+        x: 3402
+        y: 5313
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4554
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_9
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 4554
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_10
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 4554
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_11
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 4554
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_12
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 4554
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_13
+      rect:
+        serializedVersion: 2
+        x: 2430
+        y: 4554
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_14
+      rect:
+        serializedVersion: 2
+        x: 2916
+        y: 4554
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_15
+      rect:
+        serializedVersion: 2
+        x: 3402
+        y: 4554
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3795
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_17
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 3795
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_18
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 3795
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_19
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 3795
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_20
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 3795
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_21
+      rect:
+        serializedVersion: 2
+        x: 2430
+        y: 3795
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_22
+      rect:
+        serializedVersion: 2
+        x: 2916
+        y: 3795
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_23
+      rect:
+        serializedVersion: 2
+        x: 3402
+        y: 3795
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3036
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_25
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 3036
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_26
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 3036
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_27
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 3036
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_28
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 3036
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_29
+      rect:
+        serializedVersion: 2
+        x: 2430
+        y: 3036
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_30
+      rect:
+        serializedVersion: 2
+        x: 2916
+        y: 3036
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_31
+      rect:
+        serializedVersion: 2
+        x: 3402
+        y: 3036
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2277
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_33
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 2277
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_34
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 2277
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_35
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 2277
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_36
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 2277
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_37
+      rect:
+        serializedVersion: 2
+        x: 2430
+        y: 2277
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_38
+      rect:
+        serializedVersion: 2
+        x: 2916
+        y: 2277
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_39
+      rect:
+        serializedVersion: 2
+        x: 3402
+        y: 2277
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1518
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_41
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 1518
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_42
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 1518
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_43
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 1518
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_44
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 1518
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_45
+      rect:
+        serializedVersion: 2
+        x: 2430
+        y: 1518
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_46
+      rect:
+        serializedVersion: 2
+        x: 2916
+        y: 1518
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_47
+      rect:
+        serializedVersion: 2
+        x: 3402
+        y: 1518
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 759
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_49
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 759
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_50
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 759
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_51
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 759
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_52
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 759
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_53
+      rect:
+        serializedVersion: 2
+        x: 2430
+        y: 759
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_54
+      rect:
+        serializedVersion: 2
+        x: 2916
+        y: 759
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_55
+      rect:
+        serializedVersion: 2
+        x: 3402
+        y: 759
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_57
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 0
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_58
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 0
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_59
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 0
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_60
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 0
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_61
+      rect:
+        serializedVersion: 2
+        x: 2430
+        y: 0
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_62
+      rect:
+        serializedVersion: 2
+        x: 2916
+        y: 0
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uno-cards_63
+      rect:
+        serializedVersion: 2
+        x: 3402
+        y: 0
+        width: 486
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
