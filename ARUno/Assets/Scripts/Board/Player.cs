@@ -36,7 +36,8 @@ public class Player {
     public void EndTurn() {
         Debug.Log(playerID + " end turn");
         hand.SetActive(false);
-        GameManager.ShowContinueUI(playerID);
+        if (!EasyUnoAI.IsCurrentPlayer())
+            GameManager.ShowContinueUI(playerID);
     }
 
     // pile click action, draw a card

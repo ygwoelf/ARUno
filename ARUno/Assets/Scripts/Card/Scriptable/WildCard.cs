@@ -17,6 +17,10 @@ public class WildCard : Card {
 
     // show color selection
     public void ShowWildMenu() {
+        if (EasyUnoAI.IsCurrentPlayer()) {
+            ChangeColor( (CardColor)Random.Range(0, 3) );
+            return;
+        }
         ColorChangeMenu = Resources.Load<GameObject>("WildMenu");
         ColorChangeMenu = Instantiate<GameObject>(ColorChangeMenu);
         ColorChangeMenu.transform.SetParent(GameObject.FindGameObjectWithTag("screen").transform);
