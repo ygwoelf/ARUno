@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class EasyUnoAI : MonoBehaviour {
 	public static int controlledIndex = 0;
+	static GameObject unoAI;
 
 	// Use this for initialization
 	void Start () {
-		
+		unoAI = GameObject.Find("UnoAI");
 	}
 	
 	// Update is called once per frame
@@ -28,6 +29,6 @@ public class EasyUnoAI : MonoBehaviour {
 	}
 
 	public static bool IsCurrentPlayer() {
-		return EasyUnoAI.controlledIndex == GameManager.PlayerIndex;
+		return unoAI && EasyUnoAI.controlledIndex == GameManager.PlayerIndex;
 	}
 }

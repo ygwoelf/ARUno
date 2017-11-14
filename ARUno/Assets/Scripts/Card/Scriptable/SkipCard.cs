@@ -4,7 +4,6 @@ using System.Collections;
 [CreateAssetMenu(fileName = "SkipCard", menuName = "Uno/SkipCard")]
 public class SkipCard : ColoredCard {
     public override void OnPlay() {
-        GameManager.CurrentPlayer.EndTurn();
-        GameManager.ToggleNextPlayer(2);
+        GameManager.Skip();
     }
 }
