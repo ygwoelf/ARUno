@@ -2,16 +2,12 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-// using UnityEngine.Events;
 
 public class CardView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler {
-    [SerializeField]
-    [Tooltip("How long must pointer be down on this object to trigger a long press")]
-    private float holdTime = 1f;
+    float holdTime = 0.5f;
+    bool IsCurrentCard = false;
     
     public Card card;
-    public bool IsCurrentCard = false;
-    // public UnityEvent onLongPress = new UnityEvent();
 
 	// Awake is called when the script instance is being loaded.
     public void Awake() {
@@ -42,19 +38,25 @@ public class CardView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     }
 
     public void OnPointerDown(PointerEventData eventData) {
-        Invoke("OnLongPress", holdTime);
+        if(!IsCurrentCard && CanBePlayed()) {
+            Invoke("OnLongPress", holdTime);
+        }
     }
  
     public void OnPointerUp(PointerEventData eventData) {
-        CancelInvoke("OnLongPress");
+        CancelLongPress();
     }
  
     public void OnPointerExit(PointerEventData eventData) {
+        CancelLongPress();
+    }
+
+    private void CancelLongPress() {
         CancelInvoke("OnLongPress");
     }
  
     private void OnLongPress() {
-        if(card.CanBePlayed()) {
+        if(CanBePlayed()) {
             CurrentCard.SetCurrentCard(card.index);
             GameManager.CurrentPlayer.cardViews.Remove(this);
             Destroy(gameObject);

@@ -16,8 +16,6 @@ public class Player : MonoBehaviour {
 
     // begin current player turn
     public void BeginTurn() {
-        Debug.Log(playerID + " begin turn");
-
         didDraw = false;
         // set current hand as scrollable
         GameManager.playerHolder.GetComponent<ScrollRect>().content = hand.GetComponent<RectTransform>();
@@ -28,7 +26,6 @@ public class Player : MonoBehaviour {
 
     // end current turn
     public void EndTurn() {
-        Debug.Log(playerID + " end turn");
         hand.SetActive(false);
         if (!EasyUnoAI.IsCurrentPlayer())
             GameManager.ShowContinueUI(playerID);

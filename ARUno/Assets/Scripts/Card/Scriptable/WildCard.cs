@@ -21,7 +21,7 @@ public class WildCard : Card {
             ChangeColor( (CardColor)Random.Range(0, 3), nextPlayer );
             return;
         }
-        ColorChangeMenu = Resources.Load<GameObject>("WildMenu");
+        ColorChangeMenu = Resources.Load<GameObject>("Prefabs/WildMenu");
         ColorChangeMenu = Instantiate<GameObject>(ColorChangeMenu);
         ColorChangeMenu.transform.SetParent(GameObject.FindGameObjectWithTag("screen").transform);
         ColorChangeMenu.transform.SetAsLastSibling();

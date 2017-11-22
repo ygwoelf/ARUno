@@ -15,7 +15,15 @@ public class CurrentCard : MonoBehaviour {
 
 	// Use this for initialization
 	public void Start () {
-        StartCoroutine(LoadFirstCard());
+		// first card can't be action card
+        Card firstCard = Pile.shared.PopCard();
+        while (firstCard.IsActionCard()) {
+            Pile.shared.Shuffle();
+            firstCard = Pile.shared.PopCard();
+        }
+        Pile.shared.RestockPile();
+        Index = firstCard.index;
+        SetCurrentCard(firstCard, true);
 	}
 	
     // set top most card, if it's first card, do not play the card
@@ -34,23 +42,6 @@ public class CurrentCard : MonoBehaviour {
     public static void SetCurrentCard(int index) {
         Card card = Pile.CardRes[index];
         SetCurrentCard(card);
-    }
-
-    // load first card when pile is ready
-    IEnumerator LoadFirstCard() {
-        Debug.Log("Waiting for pile to be loaded... " + Time.time);
-        yield return new WaitUntil(() => Pile.shared.IsReady());
-        Debug.Log("Pile is loaded! " + Time.time);
-
-		// first card can't be action card
-        Card firstCard = Pile.shared.PopCard();
-        while (firstCard.IsActionCard()) {
-            Pile.shared.Shuffle();
-            firstCard = Pile.shared.PopCard();
-        }
-        Pile.shared.RestockPile();
-        Index = firstCard.index;
-        SetCurrentCard(firstCard, true);
     }
 
     // refresh current top most card

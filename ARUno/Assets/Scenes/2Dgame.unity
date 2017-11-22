@@ -465,8 +465,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db670a529ed144ccdab01b8d4658fd24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pile: []
-  cardRes: []
 --- !u!114 &574393772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1008,7 +1006,7 @@ MonoBehaviour:
   m_Vertical: 0
   m_MovementType: 2
   m_Elasticity: 1
-  m_Inertia: 1
+  m_Inertia: 0
   m_DecelerationRate: 0.1
   m_ScrollSensitivity: 0.5
   m_Viewport: {fileID: 0}

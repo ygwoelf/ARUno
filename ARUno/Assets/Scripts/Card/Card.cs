@@ -19,7 +19,7 @@ public abstract class Card : ScriptableObject, IComparable<Card> {
 
     // instatiate new card view
     public CardView CreateCardView(Transform parent) {
-        CardView cardView = Instantiate(Resources.Load<CardView>("Card"));
+        CardView cardView = Instantiate(Resources.Load<CardView>("Prefabs/Card"));
         cardView.gameObject.GetComponent<Image>().sprite = model.face;
         cardView.transform.SetParent(parent);
         cardView.card = this;
