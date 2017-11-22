@@ -30,8 +30,8 @@ public class CreateStandardPile {
 			// 0
 			cards.Add( CreateUnoCardHelper(ScriptableObject.CreateInstance<ColoredCard>(), start+10, GetCardColor(i), 0) );
 			// wild, wild_draw4
-			cards.Add( CreateUnoCardHelper(ScriptableObject.CreateInstance<WildCard>(), start+14, GetCardColor(i), -5) );
-			cards.Add( CreateUnoCardHelper(ScriptableObject.CreateInstance<WildDraw4Card>(), start+15, GetCardColor(i), -4) );
+			cards.Add( CreateUnoCardHelper(ScriptableObject.CreateInstance<WildCard>(), start+14, GetCardColor(), -5) );
+			cards.Add( CreateUnoCardHelper(ScriptableObject.CreateInstance<WildDraw4Card>(), start+15, GetCardColor(), -4) );
 		}
 		return cards;
     }
@@ -39,20 +39,18 @@ public class CreateStandardPile {
 	// create uno card
 	// i is the ith sprite in the folder
 	private static Card CreateUnoCardHelper(Card card, int i, CardColor color, int value) {
-		CardModel model = new CardModel();
-		model.face = cardFaces[i];
-		model.color = color;
-		model.value = value;
+		CardModel model = new CardModel(cardFaces[i], color, value);
 		card.model = model;
-
-		String resName = "Uno_" + index++ + color.ToString() + value;
-		Debug.Log("created " + resName);
-
-        AssetDatabase.CreateAsset(card, "Assets/Cards/" + resName + ".asset");
+		card.index = index;
+		String resName = "Uno_" + index + color.ToString() + value;
+		String path = "Assets/Resources/Cards/" + resName + ".asset";
+        AssetDatabase.CreateAsset(card, path);
         AssetDatabase.SaveAssets();
+		index++;
 		return card;
 	}
 
+	// convert int to CardColor for asset generating
 	private static CardColor GetCardColor(int i = -1) {
 		switch (i) {
 			case 0:

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,12 +7,15 @@ public class Pile : MonoBehaviour {
     public static Pile shared;
     public List<Card> pile = new List<Card>();
     private List<Card> stock = new List<Card>();
+    public Card[] cardRes;
     private System.Random rand;
 
     // init properties
     public void Awake() {
         shared = this;
-        pile = new List<Card>(Resources.LoadAll<Card>("Cards"));
+        cardRes = Resources.LoadAll<Card>("Cards");
+        Array.Sort(cardRes);
+        pile = new List<Card>(cardRes);
         rand = new System.Random();
         Shuffle();
     }
@@ -22,6 +26,7 @@ public class Pile : MonoBehaviour {
             pile.Add(card);
         }
         stock.Clear();
+        Shuffle();
     }
 
     // random shuffle

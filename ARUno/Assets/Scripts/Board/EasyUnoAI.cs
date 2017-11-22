@@ -17,7 +17,9 @@ public class EasyUnoAI : MonoBehaviour {
 			bool didSetCard = false;
 			foreach (CardView item in GameManager.CurrentPlayer.cardViews) {
 				if (item.CanBePlayed()) {
-					CurrentCard.SetCurrentCard(item.gameObject);
+					CurrentCard.SetCurrentCard(item.card.index);
+					GameManager.CurrentPlayer.cardViews.Remove(item);
+					Destroy(item.gameObject);
 					didSetCard = true;
 					break;
 				}

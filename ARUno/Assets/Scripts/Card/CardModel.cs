@@ -7,6 +7,13 @@ public class CardModel {
     public CardColor color;
     public int value;
 
+    public CardModel() { }
+    public CardModel(Sprite face, CardColor color, int value) {
+        this.face = face;
+        this.color = color;
+        this.value = value;
+    }
+
     public Color getColor() {
         switch (color) {
             case CardColor.red:

@@ -23,17 +23,16 @@ public class CurrentCard : MonoBehaviour {
         shared.model.color = card.model.color;
         shared.model.value = card.model.value;
         shared.RedrawCard();
-        if(!firstCard)
+        if(!firstCard) {
+            GameManager.CheckForWin();
             card.OnPlay();
+        }
     }
 
-    // set current card from card view
-    public static void SetCurrentCard(GameObject go) {
-        CardView view = go.GetComponent<CardView>();
-        GameManager.CurrentPlayer.cardViews.Remove(view);
-        GameManager.CheckForWin();
-        SetCurrentCard(view.card);
-        Destroy(go);
+    // set current card from card index
+    public static void SetCurrentCard(int index) {
+        Card card = Pile.shared.cardRes[index];
+        SetCurrentCard(card);
     }
 
     // load first card when pile is ready

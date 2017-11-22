@@ -82,7 +82,9 @@ public class CardView : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             Destroy(placeholder);
             RaycastResult rr = eventData.pointerCurrentRaycast;
             if(rr.isValid && rr.gameObject.tag == "CurrentCard" && card.CanBePlayed()) {
-                CurrentCard.SetCurrentCard(gameObject);
+                CurrentCard.SetCurrentCard(card.index);
+                GameManager.CurrentPlayer.cardViews.Remove(this);
+                Destroy(gameObject);
             } else {
                 ReturnCard();
             }

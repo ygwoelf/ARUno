@@ -6,14 +6,18 @@ using UnityEngine.SceneManagement;
 using System.Linq;
 
 public class GameManager : MonoBehaviour {
-	static public int numberOfPlayers = 2;
+	static public int numberOfPlayers = 4;
 	static public int numberOfInitialCards = 7;
     static public GameManager shared;
-	static public Player[] players = new Player[numberOfPlayers];
+	static public Player[] players {
+        get {
+            return playerHolder.GetComponentsInChildren<Player>();
+        }
+    }
 
     static public GameObject continueUI;
     static public GameObject victoryUI;
-    static public GameObject handHolder;
+    static public GameObject playerHolder;
 
     static int playerIndex = 0;
 	static int direction = 1;	// init direction 1, reversed = -1
@@ -45,13 +49,16 @@ public class GameManager : MonoBehaviour {
 	// Awake is called when the script instance is being loaded.
 	void Awake() {
         shared = this;
-        handHolder = GameObject.Find("HandHolder");
+        playerHolder = GameObject.Find("PlayerHolder");
 	}
 
 	// Use this for initialization
     public void Start() {
-        for(int i = 0; i < players.Length; i++) {
-            players[i] = new Player(i);
+        for(int i = 0; i < numberOfPlayers; i++) {
+            var player = GameObject.Instantiate(Resources.Load<GameObject>("Player"));
+            player.transform.SetParent(playerHolder.transform);
+            player.transform.localPosition = Vector3.zero;
+            player.GetComponent<Player>().playerID = i;
         }
         GameObject.FindGameObjectWithTag("CardHolder").GetComponent<Button>().onClick.AddListener(OnPileClick);
         StartGame();
@@ -89,7 +96,7 @@ public class GameManager : MonoBehaviour {
     public static GameObject createUI(string text, string btnText) {
         GameObject createdUI = Resources.Load<GameObject>("Press Continue");
         createdUI = Instantiate<GameObject>(createdUI);
-        createdUI.transform.SetParent(handHolder.transform);
+        createdUI.transform.SetParent(playerHolder.transform);
         createdUI.transform.SetAsLastSibling();
         createdUI.transform.localPosition = new Vector3(0, 300, 0);
         createdUI.GetComponentInChildren<Text>().text = text;

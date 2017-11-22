@@ -5,7 +5,10 @@
 /[Bb]uilds/
 /Assets/AssetStoreTools*
 Library/
+Temp/
 Assets/UnityARKit*
+Assets/.vs*
+Cards/
 
 # Visual Studio 2015 cache directory
 /.vs/

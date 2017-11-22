@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player {
+public class Player : MonoBehaviour {
     public GameObject hand;
     public List<CardView> cardViews = new List<CardView>();
     bool didDraw = false;
-    int playerID;
+    public int playerID;
 
     // setup hand
-    public Player(int id) {
-        playerID = id;
-        hand = GameObject.Instantiate(Resources.Load<GameObject>("Hand"));
-        hand.transform.SetParent(GameManager.handHolder.transform);
-        hand.transform.localPosition = Vector3.zero;
+    public void Awake() {
+        hand = transform.Find("Hand").gameObject;
+        // hand = GameObject.Instantiate(Resources.Load<GameObject>("Hand"));
+        // hand.transform.SetParent(GameManager.handHolder.transform);
+        // hand.transform.localPosition = Vector3.zero;
     }
 
     // begin current player turn
@@ -26,7 +26,7 @@ public class Player {
             view.IsDraggable = true;
         }
         // set current hand as scrollable
-        GameManager.handHolder.GetComponent<ScrollRect>().content = hand.GetComponent<RectTransform>();
+        GameManager.playerHolder.GetComponent<ScrollRect>().content = hand.GetComponent<RectTransform>();
         // set current player in textbar
         GameObject.FindGameObjectWithTag("PlayerTextBar").GetComponentInChildren<Text>().text = "PLAYER " + playerID + "'S TURN";
         hand.SetActive(true);
