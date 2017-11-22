@@ -2,21 +2,21 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+// using UnityEngine.Events;
 
-public class CardView : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
+public class CardView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler {
+    [SerializeField]
+    [Tooltip("How long must pointer be down on this object to trigger a long press")]
+    private float holdTime = 1f;
+    
     public Card card;
-    Transform previousParent;
-    GameObject placeholder;
-    int siblingIndex;
-    public bool IsDraggable;
-    public bool IsBeingDragged;
+    public bool IsCurrentCard = false;
+    // public UnityEvent onLongPress = new UnityEvent();
 
 	// Awake is called when the script instance is being loaded.
     public void Awake() {
-        IsDraggable = false;
-
-        if(gameObject.tag != "CurrentCard") {
-            IsDraggable = true;
+        if(gameObject.tag == "CurrentCard") {
+            IsCurrentCard = true;
         }
     }
 
@@ -36,58 +36,28 @@ public class CardView : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         return card.CanBePlayed();
     }
 
-    // reset card to hand
-    public void ReturnCard() {
-        transform.SetParent(previousParent);
-        transform.SetSiblingIndex(siblingIndex);
-    }
-
     // card action
     public virtual void OnPlay() {
         card.OnPlay();
     }
 
-    // drag to e.position
-    public void OnDrag(PointerEventData eventData) {
-        if(IsDraggable) {
-            this.transform.position = eventData.position;
-            RaycastResult rr = eventData.pointerCurrentRaycast;
-            if(rr.isValid && rr.gameObject.tag == "Card") {
-                siblingIndex = rr.gameObject.transform.GetSiblingIndex();
-                placeholder.transform.SetSiblingIndex(siblingIndex);
-            }
-        }
+    public void OnPointerDown(PointerEventData eventData) {
+        Invoke("OnLongPress", holdTime);
     }
-
-    // begin drag
-    public void OnBeginDrag(PointerEventData eventData) {
-        GetComponent<CanvasGroup>().blocksRaycasts = false;
-
-        if(IsDraggable) {
-            IsBeingDragged = true;
-            previousParent = transform.parent;
-            siblingIndex = transform.GetSiblingIndex();
-
-            placeholder = (GameObject)Instantiate(Resources.Load("Placeholder"));
-            placeholder.transform.SetParent(previousParent);
-            placeholder.transform.SetSiblingIndex(siblingIndex);
-            transform.SetParent(transform.parent.parent);
-        }
+ 
+    public void OnPointerUp(PointerEventData eventData) {
+        CancelInvoke("OnLongPress");
     }
-
-    // end drag
-    public void OnEndDrag(PointerEventData eventData) {
-        GetComponent<CanvasGroup>().blocksRaycasts = true;
-        if(IsDraggable) {
-            Destroy(placeholder);
-            RaycastResult rr = eventData.pointerCurrentRaycast;
-            if(rr.isValid && rr.gameObject.tag == "CurrentCard" && card.CanBePlayed()) {
-                CurrentCard.SetCurrentCard(card.index);
-                GameManager.CurrentPlayer.cardViews.Remove(this);
-                Destroy(gameObject);
-            } else {
-                ReturnCard();
-            }
+ 
+    public void OnPointerExit(PointerEventData eventData) {
+        CancelInvoke("OnLongPress");
+    }
+ 
+    private void OnLongPress() {
+        if(card.CanBePlayed()) {
+            CurrentCard.SetCurrentCard(card.index);
+            GameManager.CurrentPlayer.cardViews.Remove(this);
+            Destroy(gameObject);
         }
     }
 }

@@ -19,9 +19,6 @@ public class Player : MonoBehaviour {
         Debug.Log(playerID + " begin turn");
 
         didDraw = false;
-        foreach(CardView view in cardViews) {
-            view.IsDraggable = true;
-        }
         // set current hand as scrollable
         GameManager.playerHolder.GetComponent<ScrollRect>().content = hand.GetComponent<RectTransform>();
         // set current player in textbar
@@ -45,9 +42,6 @@ public class Player : MonoBehaviour {
         if(!didDraw) {
             if(card.CanBePlayed()) {
                 didDraw = true;
-                foreach(CardView view in cardViews) {
-                    view.IsDraggable = false;
-                }
             } else {
                 EndTurn();
                 GameManager.ToggleNextPlayer();

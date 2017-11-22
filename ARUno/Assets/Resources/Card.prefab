@@ -88,7 +88,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13599c279e3a14b0293153a7a700892d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: d23d6b07a9fb2408e87a109b523dbd6e, type: 2}
+  holdTime: 1
+  card: {fileID: 0}
   IsDraggable: 0
   IsBeingDragged: 0
 --- !u!222 &222000010264846128
