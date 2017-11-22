@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CurrentCard : MonoBehaviour {
     public static CurrentCard shared;
     public CardModel model = new CardModel();
+    public static int Index { get; private set; }
 
 	// Awake is called when the script instance is being loaded.
 	void Awake() {
@@ -31,7 +32,7 @@ public class CurrentCard : MonoBehaviour {
 
     // set current card from card index
     public static void SetCurrentCard(int index) {
-        Card card = Pile.shared.cardRes[index];
+        Card card = Pile.CardRes[index];
         SetCurrentCard(card);
     }
 
@@ -42,14 +43,14 @@ public class CurrentCard : MonoBehaviour {
         Debug.Log("Pile is loaded! " + Time.time);
 
 		// first card can't be action card
-        Card firstCard = Pile.shared.pile[0];
+        Card firstCard = Pile.shared.PopCard();
         while (firstCard.IsActionCard()) {
             Pile.shared.Shuffle();
-            firstCard = Pile.shared.pile[0];
+            firstCard = Pile.shared.PopCard();
         }
-
+        Pile.shared.RestockPile();
+        Index = firstCard.index;
         SetCurrentCard(firstCard, true);
-        Pile.shared.Pop();
     }
 
     // refresh current top most card

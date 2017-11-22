@@ -12,9 +12,6 @@ public class Player : MonoBehaviour {
     // setup hand
     public void Awake() {
         hand = transform.Find("Hand").gameObject;
-        // hand = GameObject.Instantiate(Resources.Load<GameObject>("Hand"));
-        // hand.transform.SetParent(GameManager.handHolder.transform);
-        // hand.transform.localPosition = Vector3.zero;
     }
 
     // begin current player turn
@@ -44,7 +41,7 @@ public class Player : MonoBehaviour {
     public void OnPileClick() {
         if (GameManager.continueUI) return;
 
-        Card card = Pile.shared.pile[0];
+        Card card = Pile.shared.PopCard();
         if(!didDraw) {
             if(card.CanBePlayed()) {
                 didDraw = true;
@@ -61,7 +58,7 @@ public class Player : MonoBehaviour {
 
     // draw 1 card
     public void Draw() {
-        CardView view = Pile.shared.Pop().CreateCardView(hand.transform);
+        CardView view = Pile.shared.PopCard().CreateCardView(hand.transform);
         cardViews.Add(view);
     }
 

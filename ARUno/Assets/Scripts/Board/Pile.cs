@@ -1,30 +1,30 @@
-﻿using System.Collections;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Pile : MonoBehaviour {
     public static Pile shared;
-    public List<Card> pile = new List<Card>();
-    private List<Card> stock = new List<Card>();
-    public Card[] cardRes;
+    public static Card[] CardRes { get; private set; }
+    private List<int> pile;
+    private List<int> stock = new List<int>();
     private System.Random rand;
 
     // init properties
     public void Awake() {
         shared = this;
-        cardRes = Resources.LoadAll<Card>("Cards");
-        Array.Sort(cardRes);
-        pile = new List<Card>(cardRes);
+        CardRes = Resources.LoadAll<Card>("Cards");
+        Array.Sort(CardRes);
+        pile = Enumerable.Range(0, CardRes.Length).ToList<int>();
         rand = new System.Random();
+        gameObject.GetComponent<Button>().onClick.AddListener(OnPileClick);
         Shuffle();
     }
     
     // restock the pile
     public void RestockPile() {
-        foreach(Card card in stock) {
-            pile.Add(card);
-        }
+        pile = stock.ToList();
         stock.Clear();
         Shuffle();
     }
@@ -32,7 +32,7 @@ public class Pile : MonoBehaviour {
     // random shuffle
     public void Shuffle() {
         for(int i = 0; i < pile.Count; i++) { 
-            Card temp = pile[i];
+            int temp = pile[i];
             int randomNum = rand.Next(0, pile.Count);
             pile[i] = pile[randomNum];
             pile[randomNum] = temp;
@@ -40,17 +40,36 @@ public class Pile : MonoBehaviour {
     }
 
     // pop top card
-    public Card Pop() {
-        Card temp = pile[0];
-        stock.Add(temp);
+    public int Pop() {
+        int temp = pile[0];
+        stock.Add(pile[0]);
         pile.RemoveAt(0);
         if (pile.Count == 0)
             RestockPile();
         return temp;
     }
 
+    // pop n cards
+    public List<int> Pop(int n) {
+        List<int> cards = new List<int>();
+        for (int i = 0; i < n; i++) {
+            cards.Add(Pop());
+        }
+        return cards;
+    }
+
+    // get card from index
+    public Card PopCard() {
+        return CardRes[Pop()];
+    }
+
     // pile is loaded
     public bool IsReady() {
         return shared.pile.Count != 0;
+    }
+
+    // pile click action, draw a card
+    public void OnPileClick() {
+        GameManager.CurrentPlayer.OnPileClick();
     }
 }

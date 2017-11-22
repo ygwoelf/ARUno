@@ -60,26 +60,17 @@ public class GameManager : MonoBehaviour {
             player.transform.localPosition = Vector3.zero;
             player.GetComponent<Player>().playerID = i;
         }
-        GameObject.FindGameObjectWithTag("CardHolder").GetComponent<Button>().onClick.AddListener(OnPileClick);
         StartGame();
     }
 
 	// Update is called once per frame
     public void Update() {
-        if(Input.GetKeyDown(KeyCode.P)) {
-            OnPileClick();
-        }
         if(Input.GetKeyDown(KeyCode.Return) && continueUI) {
             OnContinueUIClick();
         }
         if(Input.GetKeyDown(KeyCode.Escape)) {
             Application.Quit();
         }
-    }
-
-    // pile click action, draw a card
-    public void OnPileClick() {
-        CurrentPlayer.OnPileClick();
     }
 
     // start the game
