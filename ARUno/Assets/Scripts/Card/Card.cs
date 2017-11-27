@@ -31,7 +31,7 @@ public abstract class Card : ScriptableObject, IComparable<Card> {
         return (model.color == CardColor.wild) || (model.value < 0);
     }
 
-    //This method is required by the IComparable interface. 
+    // This method is required by the IComparable interface. 
     public int CompareTo(Card other) {
         if(other == null) {
             return 1;

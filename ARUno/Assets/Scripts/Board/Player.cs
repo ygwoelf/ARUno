@@ -38,6 +38,7 @@ public class Player : MonoBehaviour {
         Card card = Pile.shared.PopCard();
         if(!didDraw) {
             if(card.CanBePlayed()) {
+                Debug.Log(card.index);
                 didDraw = true;
             } else {
                 EndTurn();

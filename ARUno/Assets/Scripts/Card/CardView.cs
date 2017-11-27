@@ -5,14 +5,17 @@ using UnityEngine.UI;
 
 public class CardView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler {
     float holdTime = 0.5f;
-    bool IsCurrentCard = false;
-    
+    bool wasPressed = false;
     public Card card;
 
-	// Awake is called when the script instance is being loaded.
-    public void Awake() {
-        if(gameObject.tag == "CurrentCard") {
-            IsCurrentCard = true;
+    // change local scale according to can be played or pressed
+    void Update() {
+        if (CanBePlayed()) {
+            if (wasPressed) {
+                transform.localScale = new Vector3(1.2F, 1.2F, 1);
+            } else {
+                transform.localScale = new Vector3(1.1F, 1.1F, 1);
+            }
         }
     }
 
@@ -37,24 +40,30 @@ public class CardView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         card.OnPlay();
     }
 
+    // press down
     public void OnPointerDown(PointerEventData eventData) {
-        if(!IsCurrentCard && CanBePlayed()) {
+        if(CanBePlayed()) {
+            wasPressed = true;
             Invoke("OnLongPress", holdTime);
         }
     }
  
+    // release
     public void OnPointerUp(PointerEventData eventData) {
         CancelLongPress();
     }
  
+    // exit pointer
     public void OnPointerExit(PointerEventData eventData) {
         CancelLongPress();
     }
 
+    // helper to cancel long press
     private void CancelLongPress() {
         CancelInvoke("OnLongPress");
     }
  
+    // called when pressed for holdTime long
     private void OnLongPress() {
         if(CanBePlayed()) {
             CurrentCard.SetCurrentCard(card.index);
