@@ -3,6 +3,12 @@ using System.Collections;
 
 [System.Serializable]
 public class CardModel {
+    Color LustRed = new Color(0.92F, 0.10F, 0.13F, 1.00F);
+    Color ElectricBlue = new Color(0.00F, 0.54F, 0.84F, 1.00F);
+    Color PigmentGreen = new Color(0.01F, 0.61F, 0.28F, 1.00F);
+    Color GoldYellow = new Color(1.00F, 0.85F, 0.01F, 1.00F);
+
+
     public Sprite face;
     public CardColor color;
     public int value;
@@ -17,13 +23,13 @@ public class CardModel {
     public Color getColor() {
         switch (color) {
             case CardColor.red:
-                return Color.red;
+                return LustRed;
             case CardColor.blue:
-                return Color.blue;
+                return ElectricBlue;
             case CardColor.green:
-                return Color.green;
+                return PigmentGreen;
             case CardColor.yellow:
-                return Color.yellow;
+                return GoldYellow;
             default:
                 return Color.black;
         }
