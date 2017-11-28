@@ -74,7 +74,6 @@ public class GameManager : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.Escape)) {
             Application.Quit();
         }
-        CheckForWin();
     }
 
     // turn on/off AR
@@ -82,8 +81,8 @@ public class GameManager : MonoBehaviour {
 		string modeString = appMode == 0 ? "AR" : "Normal";
 		if (GUI.Button(new Rect(Screen.width -150.0f, 0.0f, 150.0f, 100.0f), modeString)) {
 			appMode = (appMode + 1) % 2;
-            MeshRenderer render = CurrentCard.shared.gameObject.GetComponentInChildren<MeshRenderer>();
-            render.enabled = !render.enabled;
+            Image image = CurrentCard.shared.gameObject.GetComponentInChildren<Image>();
+            image.enabled = !image.enabled;
 		}
 	}
 
@@ -112,10 +111,12 @@ public class GameManager : MonoBehaviour {
 
     // check for win
     public static void CheckForWin() {
-        if(CurrentPlayer.cardViews.Count == 0) {
-            Debug.Log("game ended");
-            victoryUI = createUI("player " + PlayerIndex + " wins", "restart");
-            victoryUI.GetComponentInChildren<Button>().onClick.AddListener(StartNewGame);
+        foreach (Player player in players) {
+            if(player.cardViews.Count == 0) {
+                Debug.Log("game ended");
+                victoryUI = createUI("player " + player.playerID + " wins", "restart");
+                victoryUI.GetComponentInChildren<Button>().onClick.AddListener(StartNewGame);
+            }
         }
     }
 
