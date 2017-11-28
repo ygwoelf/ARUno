@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour {
 
     static int playerIndex = 0;
 	static int direction = 1;	// init direction 1, reversed = -1
+    
+    // For AR
+	private int appMode = 0;
 
 	// current player index
     public static int PlayerIndex {
@@ -53,7 +56,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	// Use this for initialization
-    public void Start() {
+    void Start() {
         for(int i = 0; i < numberOfPlayers; i++) {
             var player = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Player"));
             player.transform.SetParent(playerHolder.transform);
@@ -64,7 +67,7 @@ public class GameManager : MonoBehaviour {
     }
 
 	// Update is called once per frame
-    public void Update() {
+    void Update() {
         if(Input.GetKeyDown(KeyCode.Return) && continueUI) {
             OnContinueUIClick();
         }
@@ -72,6 +75,16 @@ public class GameManager : MonoBehaviour {
             Application.Quit();
         }
     }
+
+    // turn on/off AR
+	void OnGUI() {
+		string modeString = appMode == 0 ? "AR" : "Normal";
+		if (GUI.Button(new Rect(Screen.width -150.0f, 0.0f, 150.0f, 100.0f), modeString)) {
+			appMode = (appMode + 1) % 2;
+            MeshRenderer render = CurrentCard.shared.gameObject.GetComponentInChildren<MeshRenderer>();
+            render.enabled = !render.enabled;
+		}
+	}
 
     // start the game
     public static void StartGame() {

@@ -16,6 +16,8 @@ public class CardView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
             } else {
                 transform.localScale = new Vector3(1.1F, 1.1F, 1);
             }
+        } else {
+            transform.localScale = Vector3.one;
         }
     }
 
@@ -61,6 +63,7 @@ public class CardView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     // helper to cancel long press
     private void CancelLongPress() {
         CancelInvoke("OnLongPress");
+        wasPressed = false;
     }
  
     // called when pressed for holdTime long

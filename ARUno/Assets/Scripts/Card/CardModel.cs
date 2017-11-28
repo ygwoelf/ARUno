@@ -8,7 +8,6 @@ public class CardModel {
     Color PigmentGreen = new Color(0.01F, 0.61F, 0.28F, 1.00F);
     Color GoldYellow = new Color(1.00F, 0.85F, 0.01F, 1.00F);
 
-
     public Sprite face;
     public CardColor color;
     public int value;

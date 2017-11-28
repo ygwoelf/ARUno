@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR.iOS;
 
 public class CurrentCard : MonoBehaviour {
     public static CurrentCard shared;
@@ -25,6 +26,18 @@ public class CurrentCard : MonoBehaviour {
         Index = firstCard.index;
         SetCurrentCard(firstCard, true);
 	}
+
+    // set current card in board center
+    void Update() {
+		//use center of board to show current card
+        var arCardGO = GameObject.Find("ARUnoCard");
+        if (arCardGO == null) {
+            return;
+        }
+        var arCardSpriteRenderer = arCardGO.GetComponent<SpriteRenderer>();
+        arCardSpriteRenderer.sprite = model.face;
+        arCardSpriteRenderer.color = model.getColor();
+    }
 	
     // set top most card, if it's first card, do not play the card
     public static void SetCurrentCard(Card card, bool firstCard = false) {

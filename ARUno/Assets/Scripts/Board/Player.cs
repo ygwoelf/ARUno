@@ -36,15 +36,15 @@ public class Player : MonoBehaviour {
         if (GameManager.continueUI) return;
 
         Card card = Pile.shared.PopCard();
+        Debug.Log(didDraw);
         if(!didDraw) {
             if(card.CanBePlayed()) {
-                Debug.Log(card.index);
                 didDraw = true;
             } else {
                 EndTurn();
                 GameManager.ToggleNextPlayer();
             }
-            Draw();
+            cardViews.Add(card.CreateCardView(hand.transform));
         }
     }
 
