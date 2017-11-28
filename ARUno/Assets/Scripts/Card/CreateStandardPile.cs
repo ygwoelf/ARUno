@@ -20,7 +20,7 @@ public class CreateStandardPile {
 			for (int k = 0; k < 2; k++) {
 				// 1-9
 				for (int j = start; j < start+9; j++) {
-					cards.Add( CreateUnoCardHelper(ScriptableObject.CreateInstance<ColoredCard>(), j, GetCardColor(i), j-start) );
+					cards.Add( CreateUnoCardHelper(ScriptableObject.CreateInstance<ColoredCard>(), j, GetCardColor(i), j-start+1) );
 				}
 				// skip, reverse, draw2
 				cards.Add( CreateUnoCardHelper(ScriptableObject.CreateInstance<SkipCard>(), start+11, GetCardColor(i), -1) );

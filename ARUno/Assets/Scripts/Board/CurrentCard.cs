@@ -36,7 +36,7 @@ public class CurrentCard : MonoBehaviour {
         }
         var arCardSpriteRenderer = arCardGO.GetComponent<SpriteRenderer>();
         arCardSpriteRenderer.sprite = model.face;
-        arCardSpriteRenderer.color = model.getColor();
+        // arCardSpriteRenderer.color = model.getColor();
     }
 	
     // set top most card, if it's first card, do not play the card

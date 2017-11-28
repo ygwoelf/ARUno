@@ -749,7 +749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31cac8edf84834043ac167deaeba16a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planePrefab: {fileID: 1347961003370834, guid: ac48b09fc4746413587bb420438fbc1f,
+  planePrefab: {fileID: 1074149275435024, guid: ac48b09fc4746413587bb420438fbc1f,
     type: 2}
 --- !u!4 &749418853
 Transform:
