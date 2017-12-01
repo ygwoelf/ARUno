@@ -8,7 +8,6 @@ public class CardView : MonoBehaviour, IComparable<CardView>, IPointerDownHandle
     float holdTime = 0.5f;
     bool wasPressed = false;
     public Card card;
-    public int playerID;
 
     // change local scale according to can be played or pressed
     void Update() {
@@ -34,10 +33,9 @@ public class CardView : MonoBehaviour, IComparable<CardView>, IPointerDownHandle
         }
     }
 
-    // card can be played
+    // card can be played or jump-in
     public bool CanBePlayed() {
-        // TODO: add jump-in
-        return card.CanBePlayed() && playerID == GameManager.PlayerIndex;
+        return (card.CanBePlayed() && card.playerID == GameManager.PlayerIndex) || card.CanJumpIn();
     }
 
     // card action
@@ -85,6 +83,6 @@ public class CardView : MonoBehaviour, IComparable<CardView>, IPointerDownHandle
         }
         // sort by color then by value
         int ret = card.model.color - other.card.model.color;
-        return ret == 0 ? card.model.value - other.card.model.value : ret;
+        return ret == 0 ? other.card.model.value - card.model.value : ret;
     }
 }

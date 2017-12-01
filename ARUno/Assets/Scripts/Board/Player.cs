@@ -46,7 +46,8 @@ public class Player : MonoBehaviour {
 
     // draw 1 card
     public void Draw() {
-        CardView view = Pile.shared.PopCard().CreateCardView(hand.transform, playerID);
+        CardView view = Pile.shared.PopCard().CreateCardView(hand.transform);
+        view.card.playerID = playerID;
         cardViews.Add(view);
         cardViews.Sort();
         int index = cardViews.IndexOf(view);

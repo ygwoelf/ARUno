@@ -65,7 +65,6 @@ public class Pile : MonoBehaviour {
 
     // peek card from top
     public Card PeekCard() {
-        Debug.Log(pile[0]);
         return CardRes[pile[0]];
     }
 

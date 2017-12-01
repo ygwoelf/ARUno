@@ -23,15 +23,15 @@ public class CreateStandardPile {
 					cards.Add( CreateUnoCardHelper(ScriptableObject.CreateInstance<ColoredCard>(), j, GetCardColor(i), j-start+1) );
 				}
 				// skip, reverse, draw2
-				cards.Add( CreateUnoCardHelper(ScriptableObject.CreateInstance<SkipCard>(), start+11, GetCardColor(i), -1) );
-				cards.Add( CreateUnoCardHelper(ScriptableObject.CreateInstance<ReverseCard>(), start+12, GetCardColor(i), -2) );
-				cards.Add( CreateUnoCardHelper(ScriptableObject.CreateInstance<Draw2Card>(), start+13, GetCardColor(i), -3) );
+				cards.Add( CreateUnoCardHelper(ScriptableObject.CreateInstance<SkipCard>(), start+11, GetCardColor(i), 100) );
+				cards.Add( CreateUnoCardHelper(ScriptableObject.CreateInstance<ReverseCard>(), start+12, GetCardColor(i), 200) );
+				cards.Add( CreateUnoCardHelper(ScriptableObject.CreateInstance<Draw2Card>(), start+13, GetCardColor(i), 300) );
 			}
 			// 0
 			cards.Add( CreateUnoCardHelper(ScriptableObject.CreateInstance<ColoredCard>(), start+10, GetCardColor(i), 0) );
 			// wild, wild_draw4
-			cards.Add( CreateUnoCardHelper(ScriptableObject.CreateInstance<WildCard>(), start+14, GetCardColor(), -5) );
-			cards.Add( CreateUnoCardHelper(ScriptableObject.CreateInstance<WildDraw4Card>(), start+15, GetCardColor(), -4) );
+			cards.Add( CreateUnoCardHelper(ScriptableObject.CreateInstance<WildCard>(), start+14, GetCardColor(), 400) );
+			cards.Add( CreateUnoCardHelper(ScriptableObject.CreateInstance<WildDraw4Card>(), start+15, GetCardColor(), 500) );
 		}
 		return cards;
     }

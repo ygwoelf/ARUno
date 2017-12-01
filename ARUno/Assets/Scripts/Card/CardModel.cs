@@ -36,9 +36,9 @@ public class CardModel {
 }
 
 public enum CardColor {
+	wild,
 	red,
 	blue,
 	green,
-	yellow,
-	wild
+	yellow
 }

@@ -27,7 +27,6 @@ public class EasyUnoAI : MonoBehaviour {
 		yield return new WaitForSeconds(waitInSeconds);
 
 		// do actions
-		bool didSetCard = false;
 		List<CardView> cvs = new List<CardView>();
 		foreach (CardView item in GameManager.CurrentPlayer.cardViews) {
 			if (item.CanBePlayed()) {

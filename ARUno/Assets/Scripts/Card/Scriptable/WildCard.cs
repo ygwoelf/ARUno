@@ -12,13 +12,16 @@ public class WildCard : Card {
 
 	// opens color change menu
     public override void OnPlay() {
+        if (CanJumpIn()) {
+            GameManager.PlayerIndex = playerID;
+        }
         ShowWildMenu();
     }
 
     // show color selection
     public void ShowWildMenu(int nextPlayer = 1) {
         if (EasyUnoAI.IsAIControlled()) {
-            ChangeColor( (CardColor)Random.Range(0, 3), nextPlayer );
+            ChangeColor( (CardColor)Random.Range(1, 4), nextPlayer );
             return;
         }
         ColorChangeMenu = Resources.Load<GameObject>("Prefabs/WildMenu");
