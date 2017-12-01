@@ -17,7 +17,7 @@ public class WildCard : Card {
 
     // show color selection
     public void ShowWildMenu(int nextPlayer = 1) {
-        if (EasyUnoAI.IsCurrentPlayer()) {
+        if (EasyUnoAI.IsAIControlled()) {
             ChangeColor( (CardColor)Random.Range(0, 3), nextPlayer );
             return;
         }
@@ -38,7 +38,6 @@ public class WildCard : Card {
         CurrentCard.shared.model.color = color;
         CurrentCard.shared.RedrawCard();
         Destroy(ColorChangeMenu);
-        GameManager.CurrentPlayer.EndTurn();
         GameManager.ToggleNextPlayer(nextPlayer);
     }
 }

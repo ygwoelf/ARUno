@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    static public GameObject continueUI;
     static public GameObject victoryUI;
     static public GameObject playerHolder;
 
@@ -68,9 +67,6 @@ public class GameManager : MonoBehaviour {
 
 	// Update is called once per frame
     void Update() {
-        if(Input.GetKeyDown(KeyCode.Return) && continueUI) {
-            OnContinueUIClick();
-        }
         if(Input.GetKeyDown(KeyCode.Escape)) {
             Application.Quit();
         }
@@ -105,7 +101,6 @@ public class GameManager : MonoBehaviour {
         createdUI.transform.localPosition = new Vector3(0, 300, 0);
         createdUI.GetComponentInChildren<Text>().text = text;
         createdUI.transform.GetChild(1).GetComponentInChildren<Text>().text = btnText;
-        createdUI.GetComponentInChildren<Button>().onClick.AddListener(GameManager.OnContinueUIClick);
         return createdUI;
     }
 
@@ -120,15 +115,6 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    // continue playing
-    public static void OnContinueUIClick() {
-        Destroy(continueUI);
-    }
-
-    public static void ShowContinueUI(int playerID) {
-        GameManager.continueUI = GameManager.createUI("END OF PLAYER " + playerID + "'S TURN", "continue");
-    }
-
     // change current player
     public static void ToggleNextPlayer(int nextPlayer = 1) {
 		PlayerIndex += nextPlayer * direction;
@@ -138,14 +124,12 @@ public class GameManager : MonoBehaviour {
     // reverse card action
     public static void Reverse() {
         direction *= -1;
-        GameManager.CurrentPlayer.EndTurn();
         ToggleNextPlayer();
     }
 
     // skip card action
     public static void Skip() {
         Debug.Log("Skips " + PlayerIndex + direction);
-        GameManager.CurrentPlayer.EndTurn();
         GameManager.ToggleNextPlayer(2);
     }
 

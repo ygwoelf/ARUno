@@ -7,6 +7,7 @@ public class CardView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     float holdTime = 0.5f;
     bool wasPressed = false;
     public Card card;
+    public int playerID;
 
     // change local scale according to can be played or pressed
     void Update() {
@@ -34,7 +35,7 @@ public class CardView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     // card can be played
     public bool CanBePlayed() {
-        return card.CanBePlayed();
+        return card.CanBePlayed() && playerID == GameManager.PlayerIndex;
     }
 
     // card action

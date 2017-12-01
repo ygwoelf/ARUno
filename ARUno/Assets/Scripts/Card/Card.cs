@@ -13,16 +13,16 @@ public abstract class Card : ScriptableObject, IComparable<Card> {
 
     // special cards override for special moves
     public virtual void OnPlay() {
-        GameManager.CurrentPlayer.EndTurn();
         GameManager.ToggleNextPlayer();
     }
 
     // instatiate new card view
-    public CardView CreateCardView(Transform parent) {
+    public CardView CreateCardView(Transform parent, int playerID) {
         CardView cardView = Instantiate(Resources.Load<CardView>("Prefabs/Card"));
         cardView.gameObject.GetComponent<Image>().sprite = model.face;
         cardView.transform.SetParent(parent);
         cardView.card = this;
+        cardView.playerID = playerID;
         return cardView;
     }
 

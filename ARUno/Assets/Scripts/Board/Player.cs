@@ -6,51 +6,49 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour {
     public GameObject hand;
     public List<CardView> cardViews = new List<CardView>();
-    bool didDraw = false;
     public int playerID;
+    bool didDraw = false;
+
+    // Awake is called when the script instance is being loaded.
+    void Awake() {
+        hand = transform.Find("Hand").gameObject;
+    }
 
     // setup hand
-    public void Awake() {
-        hand = transform.Find("Hand").gameObject;
+    void Start() {
+        if (playerID == EasyUnoAI.playerControlledIndex) {
+            hand.SetActive(true);
+        }
     }
 
     // begin current player turn
     public void BeginTurn() {
         didDraw = false;
-        // set current hand as scrollable
-        GameManager.playerHolder.GetComponent<ScrollRect>().content = hand.GetComponent<RectTransform>();
-        // set current player in textbar
-        GameObject.FindGameObjectWithTag("PlayerTextBar").GetComponentInChildren<Text>().text = "PLAYER " + playerID + "'S TURN";
-        hand.SetActive(true);
-    }
-
-    // end current turn
-    public void EndTurn() {
-        hand.SetActive(false);
-        if (!EasyUnoAI.IsCurrentPlayer())
-            GameManager.ShowContinueUI(playerID);
+        // set current hand as scrollable and text bar if not controlled by AI
+        if (!EasyUnoAI.IsAIControlled()) {
+            GameManager.playerHolder.GetComponent<ScrollRect>().content = hand.GetComponent<RectTransform>();
+            GameObject.FindGameObjectWithTag("PlayerTextBar").GetComponentInChildren<Text>().text = "PLAYER " + playerID + "'S TURN";
+        } else {
+            GameObject.FindGameObjectWithTag("PlayerTextBar").GetComponentInChildren<Text>().text = "AI " + playerID + "'S TURN";
+        }
     }
 
     // pile click action, draw a card
     public void OnPileClick() {
-        if (GameManager.continueUI) return;
-
         Card card = Pile.shared.PopCard();
-        Debug.Log(didDraw);
         if(!didDraw) {
             if(card.CanBePlayed()) {
                 didDraw = true;
             } else {
-                EndTurn();
                 GameManager.ToggleNextPlayer();
             }
-            cardViews.Add(card.CreateCardView(hand.transform));
+            cardViews.Add(card.CreateCardView(hand.transform, playerID));
         }
     }
 
     // draw 1 card
     public void Draw() {
-        CardView view = Pile.shared.PopCard().CreateCardView(hand.transform);
+        CardView view = Pile.shared.PopCard().CreateCardView(hand.transform, playerID);
         cardViews.Add(view);
     }
 
