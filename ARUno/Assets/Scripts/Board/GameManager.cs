@@ -129,7 +129,6 @@ public class GameManager : MonoBehaviour {
 
     // skip card action
     public static void Skip() {
-        Debug.Log("Skips " + PlayerIndex + direction);
         GameManager.ToggleNextPlayer(2);
     }
 

@@ -2,8 +2,9 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System;
 
-public class CardView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler {
+public class CardView : MonoBehaviour, IComparable<CardView>, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler {
     float holdTime = 0.5f;
     bool wasPressed = false;
     public Card card;
@@ -35,6 +36,7 @@ public class CardView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     // card can be played
     public bool CanBePlayed() {
+        // TODO: add jump-in
         return card.CanBePlayed() && playerID == GameManager.PlayerIndex;
     }
 
@@ -74,5 +76,15 @@ public class CardView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
             CurrentCard.SetCurrentCard(card.index);
             Destroy(gameObject);
         }
+    }
+
+    // This method is required by the IComparable interface. 
+    public int CompareTo(CardView other) {
+        if(other == null) {
+            return 1;
+        }
+        // sort by color then by value
+        int ret = card.model.color - other.card.model.color;
+        return ret == 0 ? card.model.value - other.card.model.value : ret;
     }
 }

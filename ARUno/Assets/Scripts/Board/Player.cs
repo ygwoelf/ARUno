@@ -7,26 +7,24 @@ public class Player : MonoBehaviour {
     public GameObject hand;
     public List<CardView> cardViews = new List<CardView>();
     public int playerID;
-    bool didDraw = false;
 
     // Awake is called when the script instance is being loaded.
     void Awake() {
         hand = transform.Find("Hand").gameObject;
     }
 
-    // setup hand
+    // show hand only for the player, set scroll rect to player's hand
     void Start() {
         if (playerID == EasyUnoAI.playerControlledIndex) {
             hand.SetActive(true);
+            GameManager.playerHolder.GetComponent<ScrollRect>().content = hand.GetComponent<RectTransform>();
         }
     }
 
     // begin current player turn
     public void BeginTurn() {
-        didDraw = false;
-        // set current hand as scrollable and text bar if not controlled by AI
+        // set text bar indicating who's turn it is
         if (!EasyUnoAI.IsAIControlled()) {
-            GameManager.playerHolder.GetComponent<ScrollRect>().content = hand.GetComponent<RectTransform>();
             GameObject.FindGameObjectWithTag("PlayerTextBar").GetComponentInChildren<Text>().text = "PLAYER " + playerID + "'S TURN";
         } else {
             GameObject.FindGameObjectWithTag("PlayerTextBar").GetComponentInChildren<Text>().text = "AI " + playerID + "'S TURN";
@@ -35,14 +33,14 @@ public class Player : MonoBehaviour {
 
     // pile click action, draw a card
     public void OnPileClick() {
-        Card card = Pile.shared.PopCard();
-        if(!didDraw) {
-            if(card.CanBePlayed()) {
-                didDraw = true;
-            } else {
-                GameManager.ToggleNextPlayer();
-            }
-            cardViews.Add(card.CreateCardView(hand.transform, playerID));
+        if (playerID != EasyUnoAI.playerControlledIndex) return;
+        Card card = Pile.shared.PeekCard();
+        if (card.CanBePlayed()) {
+            Pile.shared.PopCard();
+            CurrentCard.SetCurrentCard(card);
+        } else {
+            Draw();
+            GameManager.ToggleNextPlayer();
         }
     }
 
@@ -50,6 +48,9 @@ public class Player : MonoBehaviour {
     public void Draw() {
         CardView view = Pile.shared.PopCard().CreateCardView(hand.transform, playerID);
         cardViews.Add(view);
+        cardViews.Sort();
+        int index = cardViews.IndexOf(view);
+        view.transform.SetSiblingIndex(index);
     }
 
     // draw n cards

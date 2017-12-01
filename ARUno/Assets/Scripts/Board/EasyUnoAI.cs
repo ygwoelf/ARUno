@@ -28,16 +28,18 @@ public class EasyUnoAI : MonoBehaviour {
 
 		// do actions
 		bool didSetCard = false;
+		List<CardView> cvs = new List<CardView>();
 		foreach (CardView item in GameManager.CurrentPlayer.cardViews) {
 			if (item.CanBePlayed()) {
-				GameManager.CurrentPlayer.cardViews.Remove(item);
-				CurrentCard.SetCurrentCard(item.card.index);
-				Destroy(item.gameObject);
-				didSetCard = true;
-				break;
+				cvs.Add(item);
 			}
 		}
-		if (!didSetCard) {
+		// play the card with highest value
+		if (cvs.Count > 0) {
+			GameManager.CurrentPlayer.cardViews.Remove(cvs[0]);
+			CurrentCard.SetCurrentCard(cvs[0].card.index);
+			Destroy(cvs[0].gameObject);
+		} else {
 			GameManager.CurrentPlayer.Draw();
 			GameManager.ToggleNextPlayer();
 		}

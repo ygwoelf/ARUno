@@ -63,6 +63,12 @@ public class Pile : MonoBehaviour {
         return CardRes[Pop()];
     }
 
+    // peek card from top
+    public Card PeekCard() {
+        Debug.Log(pile[0]);
+        return CardRes[pile[0]];
+    }
+
     // pile is loaded
     public bool IsReady() {
         return shared.pile.Count != 0;
