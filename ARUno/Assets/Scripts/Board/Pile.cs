@@ -39,10 +39,14 @@ public class Pile : MonoBehaviour {
         }
     }
 
+    // add to stock for reshuffle
+    public void AddToStock(int index) {
+        stock.Add(index);
+    }
+
     // pop top card
     public int Pop() {
         int temp = pile[0];
-        stock.Add(pile[0]);
         pile.RemoveAt(0);
         if (pile.Count == 0)
             RestockPile();

@@ -17,12 +17,11 @@ public class CurrentCard : MonoBehaviour {
 	// Use this for initialization
 	public void Start () {
 		// first card can't be action card
-        Card firstCard = Pile.shared.PopCard();
+        Card firstCard = Pile.shared.PeekCard();
         while (firstCard.IsActionCard()) {
             Pile.shared.Shuffle();
-            firstCard = Pile.shared.PopCard();
+            firstCard = Pile.shared.PeekCard();
         }
-        Pile.shared.RestockPile();
         Index = firstCard.index;
         SetCurrentCard(firstCard, true);
 	}
@@ -45,6 +44,7 @@ public class CurrentCard : MonoBehaviour {
         shared.model.color = card.model.color;
         shared.model.value = card.model.value;
         shared.RedrawCard();
+        Pile.shared.AddToStock(card.index);
         if(!firstCard) {
             GameManager.CheckForWin();
             card.OnPlay();
