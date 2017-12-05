@@ -7,6 +7,7 @@ public class EasyUnoAI : MonoBehaviour {
 	static int waitInSeconds = 4;
 	static GameObject unoAI;
 	bool isReady = true;
+	private int aiMode = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -15,9 +16,19 @@ public class EasyUnoAI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (isReady && EasyUnoAI.IsAIControlled()) {
+		if (isReady && EasyUnoAI.IsAIControlled() && !GameManager.IsPaused) {
 			isReady = false;
 			StartCoroutine(AIAction());
+		}
+	}
+
+    // testing AI vs. AI
+	void OnGUI() {
+		string modeString = aiMode == 0 ? "Player vs. AI" : "AI vs. AI";
+		if (GUI.Button(new Rect(0.0f, 0.0f, 150.0f, 100.0f), modeString)) {
+			aiMode = (aiMode + 1) % 2;
+			playerControlledIndex = aiMode == 0 ? 0 : -1;
+			waitInSeconds = aiMode == 0 ? 4 : 0;
 		}
 	}
 

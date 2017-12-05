@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour {
     
     // For AR
 	private int appMode = 0;
+    public static bool IsPaused { get; private set; }
 
 	// current player index
     public static int PlayerIndex {
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour {
 	// Awake is called when the script instance is being loaded.
 	void Awake() {
         shared = this;
+        IsPaused = false;
         playerHolder = GameObject.Find("PlayerHolder");
 	}
 
@@ -108,7 +110,7 @@ public class GameManager : MonoBehaviour {
     public static void CheckForWin() {
         foreach (Player player in players) {
             if(player.cardViews.Count == 0) {
-                Debug.Log("game ended");
+                IsPaused = true;
                 victoryUI = createUI("player " + player.playerID + " wins", "restart");
                 victoryUI.GetComponentInChildren<Button>().onClick.AddListener(StartNewGame);
             }
