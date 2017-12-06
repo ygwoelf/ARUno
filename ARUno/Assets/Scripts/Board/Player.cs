@@ -61,6 +61,17 @@ public class Player : MonoBehaviour {
         cardViews.Sort();
         int index = cardViews.IndexOf(view);
         view.transform.SetSiblingIndex(index);
+
+        // show number of cards in ar board
+        var arCanvasGO = GameObject.Find("ARUnoCanvas");
+        if (arCanvasGO != null) {
+            Transform sideT = arCanvasGO.transform.GetChild(playerID);
+            if (sideT.childCount > cardCount) {
+                // loop all child, active 0 to cardCount-1, hide cardCount to childCount children
+            } else if (sideT.childCount < cardCount) {
+                // active all child, init (cardCount - childCount) using GetChild(0)
+            }
+        }
     }
 
     // draw n cards

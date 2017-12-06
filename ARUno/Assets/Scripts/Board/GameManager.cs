@@ -60,8 +60,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
     void Start() {
         for(int i = 0; i < numberOfPlayers; i++) {
-            var player = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Player"));
-            player.transform.SetParent(playerHolder.transform);
+            var player = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Player"), playerHolder.transform);
             player.transform.localPosition = Vector3.zero;
             player.GetComponent<Player>().playerID = i;
         }
@@ -112,8 +111,7 @@ public class GameManager : MonoBehaviour {
     // helper to create text ui
     public static GameObject createUI(string text, string btnText) {
         GameObject createdUI = Resources.Load<GameObject>("Prefabs/Press Continue");
-        createdUI = Instantiate<GameObject>(createdUI);
-        createdUI.transform.SetParent(playerHolder.transform);
+        createdUI = Instantiate<GameObject>(createdUI, playerHolder.transform);
         createdUI.transform.SetAsLastSibling();
         createdUI.transform.localPosition = new Vector3(0, 300, 0);
         createdUI.GetComponentInChildren<Text>().text = text;
