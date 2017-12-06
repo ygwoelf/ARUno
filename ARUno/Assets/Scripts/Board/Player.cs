@@ -8,6 +8,14 @@ public class Player : MonoBehaviour {
     public List<CardView> cardViews = new List<CardView>();
     public int playerID;
 
+    // "Uno" house rule
+    public bool didCallUno = false;
+    public int cardCount {
+        get {
+            return cardViews.Count;
+        }
+    }
+
     // Awake is called when the script instance is being loaded.
     void Awake() {
         hand = transform.Find("Hand").gameObject;
@@ -46,6 +54,7 @@ public class Player : MonoBehaviour {
 
     // draw 1 card
     public void Draw() {
+        if (didCallUno) didCallUno = false;
         CardView view = Pile.shared.PopCard().CreateCardView(hand.transform);
         view.card.playerID = playerID;
         cardViews.Add(view);

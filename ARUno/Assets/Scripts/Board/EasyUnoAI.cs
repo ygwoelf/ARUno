@@ -46,6 +46,9 @@ public class EasyUnoAI : MonoBehaviour {
 		}
 		// play the card with highest value
 		if (cvs.Count > 0) {
+			if (GameManager.CurrentPlayer.cardViews.Count == 2) {
+				GameManager.CurrentPlayer.didCallUno = true;
+			}
 			GameManager.CurrentPlayer.cardViews.Remove(cvs[0]);
 			CurrentCard.SetCurrentCard(cvs[0].card.index);
 			Destroy(cvs[0].gameObject);
@@ -53,6 +56,9 @@ public class EasyUnoAI : MonoBehaviour {
 			GameManager.CurrentPlayer.Draw();
 			GameManager.ToggleNextPlayer();
 		}
+		// call "UNO!"
+		GameManager.CallUno(GameManager.PlayerIndex);
+		
 		// set AI action ready to true
 		isReady = true;
 	}

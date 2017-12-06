@@ -8,6 +8,7 @@ using System.Linq;
 public class GameManager : MonoBehaviour {
 	static public int numberOfPlayers = 4;
 	static public int numberOfInitialCards = 7;
+    static public int unoPenalty = 2;
     static public GameManager shared;
 	static public Player[] players {
         get {
@@ -74,14 +75,28 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    // turn on/off AR
 	void OnGUI() {
+        // turn on/off AR
 		string modeString = appMode == 0 ? "AR" : "Normal";
 		if (GUI.Button(new Rect(Screen.width -150.0f, 0.0f, 150.0f, 100.0f), modeString)) {
 			appMode = (appMode + 1) % 2;
             Image image = CurrentCard.shared.gameObject.GetComponentInChildren<Image>();
             image.enabled = !image.enabled;
 		}
+        // "uno" house rule
+        foreach(Player p in players) {
+            if (!p.didCallUno && p.cardCount == 1) {
+                // if player then set didCallUno, else draw 2
+                if (GUI.Button(new Rect(Screen.width -150.0f, 100.0f, 150.0f, 100.0f), "UNO!")) {
+                    if (p.playerID == EasyUnoAI.playerControlledIndex) {
+                        p.didCallUno = true;
+                    } else {
+                        p.Draw(unoPenalty);
+                    }
+                }
+                break;
+            }
+        }
 	}
 
     // start the game
@@ -137,6 +152,19 @@ public class GameManager : MonoBehaviour {
     // reload scene
     public static void StartNewGame() {
         SceneManager.LoadScene("2Dgame");
+    }
+
+    // call "UNO!"
+    public static void CallUno(int playerIndex) {
+        foreach(Player p in players) {
+            if (!p.didCallUno && p.cardCount == 1) {
+                if (p.playerID == playerIndex) {
+                    p.didCallUno = true;
+                } else {
+                    p.Draw(unoPenalty);
+                }
+            }
+        }
     }
 
     // modulus helper for advance to next player
