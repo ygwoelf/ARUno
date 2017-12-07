@@ -56,7 +56,10 @@ public class Player : MonoBehaviour {
 
     // pile click action, draw a card
     public void OnPileClick() {
-        if (playerID != EasyUnoAI.playerControlledIndex) return;
+        if (playerID == EasyUnoAI.playerControlledIndex)
+            PileClickHelper();
+    }
+    public void PileClickHelper() {
         Card card = Pile.shared.PeekCard();
         if (card.CanBePlayed()) {
             Pile.shared.PopCard();

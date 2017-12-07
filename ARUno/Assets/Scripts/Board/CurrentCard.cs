@@ -22,6 +22,7 @@ public class CurrentCard : MonoBehaviour {
             Pile.shared.Shuffle();
             firstCard = Pile.shared.PeekCard();
         }
+        Pile.shared.Pop();
         Index = firstCard.index;
         SetCurrentCard(firstCard, true);
 	}

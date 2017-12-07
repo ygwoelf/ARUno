@@ -53,8 +53,7 @@ public class EasyUnoAI : MonoBehaviour {
 			CurrentCard.SetCurrentCard(cvs[0].card.index);
 			Destroy(cvs[0].gameObject);
 		} else {
-			GameManager.CurrentPlayer.Draw();
-			GameManager.ToggleNextPlayer();
+			GameManager.CurrentPlayer.PileClickHelper();
 		}
 		// call "UNO!"
 		GameManager.CallUno(GameManager.PlayerIndex);
