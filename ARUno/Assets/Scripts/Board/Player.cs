@@ -15,6 +15,14 @@ public class Player : MonoBehaviour {
             return cardViews.Count;
         }
     }
+    public Transform sideT {
+        get {
+            var arCanvasGO = GameObject.Find("ARUnoCanvas");
+            if (arCanvasGO != null) {
+                return arCanvasGO.transform.GetChild(playerID);
+            } else return null;
+        }
+    }
 
     // Awake is called when the script instance is being loaded.
     void Awake() {
@@ -27,6 +35,11 @@ public class Player : MonoBehaviour {
             hand.SetActive(true);
             GameManager.playerHolder.GetComponent<ScrollRect>().content = hand.GetComponent<RectTransform>();
         }
+    }
+
+    /// show card on ar board
+    void Update() {
+        ShowCardOnARBoard();
     }
 
     // begin current player turn
@@ -61,16 +74,30 @@ public class Player : MonoBehaviour {
         cardViews.Sort();
         int index = cardViews.IndexOf(view);
         view.transform.SetSiblingIndex(index);
+    }
 
-        // show number of cards in ar board
-        var arCanvasGO = GameObject.Find("ARUnoCanvas");
-        if (arCanvasGO != null) {
-            Transform sideT = arCanvasGO.transform.GetChild(playerID);
-            if (sideT.childCount > cardCount) {
-                // loop all child, active 0 to cardCount-1, hide cardCount to childCount children
+    // show number of cards in ar board
+    public void ShowCardOnARBoard() {
+        if (sideT != null) {
+            if (sideT.childCount >= cardCount) {
+                for (int i = 0; i < cardCount; i++) {
+                    sideT.GetChild(i).gameObject.SetActive(true);
+                }
+                for (int i = cardCount; i < sideT.childCount; i++) {
+                    sideT.GetChild(i).gameObject.SetActive(false);
+                }
             } else if (sideT.childCount < cardCount) {
-                // active all child, init (cardCount - childCount) using GetChild(0)
+                for (int i = sideT.childCount; i < cardCount; i++) {
+                    Instantiate(sideT.GetChild(0).gameObject, sideT);
+                }
             }
+        }
+    }
+
+    // hide card
+    public void HideCardFromARBoard() {
+        if (sideT != null) {
+            sideT.GetChild(cardCount).gameObject.SetActive(false);
         }
     }
 

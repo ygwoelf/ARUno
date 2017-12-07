@@ -47,6 +47,7 @@ public class CurrentCard : MonoBehaviour {
         Pile.shared.AddToStock(card.index);
         if(!firstCard) {
             GameManager.CheckForWin();
+            GameManager.CurrentPlayer.HideCardFromARBoard();
             card.OnPlay();
         }
     }
