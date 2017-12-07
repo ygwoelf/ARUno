@@ -134,7 +134,6 @@ public class Player : MonoBehaviour {
     
     // confirm: set draw card from hand
     private void ProgressiveUnoListener() {
-        Debug.Log("progressive uno for player: " + playerID);
         cardViews.Remove(pUnoCV);
         CurrentCard.SetCurrentCard(pUnoCV.card.index);
         Destroy(pUnoCV.gameObject);
@@ -145,7 +144,6 @@ public class Player : MonoBehaviour {
 
     // cancel to dismiss progressiveUno AlertMenu
     private void CancelButtonListener() {
-        Debug.Log("cancel p uno for player: " + playerID);
         Draw(GameManager.ProgressiveUnoPenalty);
         GameManager.ToggleNextPlayer();
         GameManager.ProgressiveUnoPenalty = 0;
