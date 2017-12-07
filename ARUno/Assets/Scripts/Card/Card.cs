@@ -21,7 +21,7 @@ public abstract class Card : ScriptableObject, IComparable<Card> {
     }
 
     // jump in condition
-    public bool CanJumpIn() {
+    public virtual bool CanJumpIn() {
         return model.color == CurrentCard.shared.model.color && model.value == CurrentCard.shared.model.value;
     }
 

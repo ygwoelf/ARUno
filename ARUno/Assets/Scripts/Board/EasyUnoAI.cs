@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class EasyUnoAI : MonoBehaviour {
 	public static int playerControlledIndex = 0;
-	static int waitInSeconds = 4;
 	static GameObject unoAI;
-	bool isReady = true;
+	private bool isReady = true;
 	private int aiMode = 0;
+
+	int waitInSeconds = 3;
 
 	// Use this for initialization
 	void Start () {
@@ -28,7 +29,7 @@ public class EasyUnoAI : MonoBehaviour {
 		if (GUI.Button(new Rect(0.0f, 0.0f, 150.0f, 100.0f), modeString)) {
 			aiMode = (aiMode + 1) % 2;
 			playerControlledIndex = aiMode == 0 ? 0 : -1;
-			waitInSeconds = aiMode == 0 ? 4 : 0;
+			waitInSeconds = aiMode == 0 ? 3 : 1;
 		}
 	}
 

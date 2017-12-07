@@ -6,8 +6,14 @@ using UnityEngine.UI;
 public class WildCard : Card {
     GameObject ColorChangeMenu;
 
+    // wild card can be played always
     public override bool CanBePlayed() {
         return true;
+    }
+
+    // wild card can jump in if value equals
+    public override bool CanJumpIn() {
+        return model.value == CurrentCard.shared.model.value;
     }
 
 	// opens color change menu
