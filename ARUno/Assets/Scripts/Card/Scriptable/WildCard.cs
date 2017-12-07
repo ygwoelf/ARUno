@@ -19,9 +19,9 @@ public class WildCard : Card {
     }
 
     // show color selection
-    public void ShowWildMenu(int nextPlayer = 1) {
+    public void ShowWildMenu(int wildMove = 1) {
         if (EasyUnoAI.IsAIControlled()) {
-            ChangeColor( (CardColor)Random.Range(1, 4), nextPlayer );
+            ChangeColor( (CardColor)Random.Range(1, 4), wildMove );
             return;
         }
         ColorChangeMenu = Resources.Load<GameObject>("Prefabs/WildMenu");
@@ -29,17 +29,21 @@ public class WildCard : Card {
         ColorChangeMenu.transform.SetAsLastSibling();
         ColorChangeMenu.transform.localPosition = Vector3.zero;
 
-        ColorChangeMenu.transform.Find("red").GetComponent<Button>().onClick.AddListener(delegate { ChangeColor(CardColor.red, nextPlayer); });
-        ColorChangeMenu.transform.Find("blue").GetComponent<Button>().onClick.AddListener(delegate { ChangeColor(CardColor.blue, nextPlayer); });
-        ColorChangeMenu.transform.Find("green").GetComponent<Button>().onClick.AddListener(delegate { ChangeColor(CardColor.green, nextPlayer); });
-        ColorChangeMenu.transform.Find("yellow").GetComponent<Button>().onClick.AddListener(delegate { ChangeColor(CardColor.yellow, nextPlayer); });
+        ColorChangeMenu.transform.Find("red").GetComponent<Button>().onClick.AddListener(delegate { ChangeColor(CardColor.red, wildMove); });
+        ColorChangeMenu.transform.Find("blue").GetComponent<Button>().onClick.AddListener(delegate { ChangeColor(CardColor.blue, wildMove); });
+        ColorChangeMenu.transform.Find("green").GetComponent<Button>().onClick.AddListener(delegate { ChangeColor(CardColor.green, wildMove); });
+        ColorChangeMenu.transform.Find("yellow").GetComponent<Button>().onClick.AddListener(delegate { ChangeColor(CardColor.yellow, wildMove); });
     }
  
 	// change color
-    public void ChangeColor(CardColor color, int nextPlayer) {
+    public void ChangeColor(CardColor color, int wildMove) {
         CurrentCard.shared.model.color = color;
         CurrentCard.shared.RedrawCard();
         Destroy(ColorChangeMenu);
-        GameManager.ToggleNextPlayer(nextPlayer);
+        if (wildMove == 4) {
+            GameManager.NextPlayer.ForceDraw(4, model.value);
+        } else {
+            GameManager.ToggleNextPlayer();
+        }
     }
 }

@@ -8,7 +8,6 @@ public class WildDraw4Card : WildCard {
         if (CanJumpIn()) {
             GameManager.PlayerIndex = playerID;
         }
-        GameManager.NextPlayer.Draw(4);
-        ShowWildMenu(2);
+        ShowWildMenu(4);
     }
 }

@@ -23,6 +23,8 @@ public class Player : MonoBehaviour {
             } else return null;
         }
     }
+    private GameObject progressiveUnoUI;
+    private CardView pUnoCV;
 
     // Awake is called when the script instance is being loaded.
     void Awake() {
@@ -76,6 +78,35 @@ public class Player : MonoBehaviour {
         view.transform.SetSiblingIndex(index);
     }
 
+    // draw n cards
+    public void Draw(int n) {
+        for(int i = 0; i < n; i++) {
+            Draw();
+        }
+    }
+
+    // force draw from +2,+4 cards
+    public void ForceDraw(int n, int cardValue) {
+        GameManager.ToggleNextPlayer();
+        GameManager.ProgressiveUnoPenalty += n;
+        foreach (var cv in cardViews) {
+            // either has the same value or value for +4 (500)
+            if (cv.card.model.value == 500 || cv.card.model.value == cardValue) {
+                pUnoCV = cv;
+                if (EasyUnoAI.playerControlledIndex != playerID) {
+                    ProgressiveUnoListener();
+                } else {
+                    progressiveUnoUI = GameManager.CreateUI("Progressive Uno: Stack current penalty and passes it to the following player?", "Confirm");
+                    progressiveUnoUI.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(ProgressiveUnoListener);
+                    progressiveUnoUI.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(CancelButtonListener);
+                    GameManager.IsPaused = true;
+                }
+                return;
+            }
+        }
+        CancelButtonListener();
+    }
+
     // show number of cards in ar board
     public void ShowCardOnARBoard() {
         if (sideT != null) {
@@ -100,11 +131,25 @@ public class Player : MonoBehaviour {
             sideT.GetChild(cardCount).gameObject.SetActive(false);
         }
     }
+    
+    // confirm: set draw card from hand
+    private void ProgressiveUnoListener() {
+        Debug.Log("progressive uno for player: " + playerID);
+        cardViews.Remove(pUnoCV);
+        CurrentCard.SetCurrentCard(pUnoCV.card.index);
+        Destroy(pUnoCV.gameObject);
+        Destroy(progressiveUnoUI);
+        GameManager.IsPaused = false;
+        pUnoCV = null;
+    }
 
-    // draw n cards
-    public void Draw(int n) {
-        for(int i = 0; i < n; i++) {
-            Draw();
-        }
+    // cancel to dismiss progressiveUno AlertMenu
+    private void CancelButtonListener() {
+        Debug.Log("cancel p uno for player: " + playerID);
+        Draw(GameManager.ProgressiveUnoPenalty);
+        GameManager.ToggleNextPlayer();
+        GameManager.ProgressiveUnoPenalty = 0;
+        GameManager.IsPaused = false;
+        Destroy(progressiveUnoUI);
     }
 }

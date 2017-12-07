@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 using System.Linq;
 
 public class GameManager : MonoBehaviour {
-	static public int numberOfPlayers = 4;
-	static public int numberOfInitialCards = 7;
-    static public int unoPenalty = 2;
+	readonly static public int numberOfPlayers = 4;
+	readonly static public int numberOfInitialCards = 7;
+    readonly static public int unoPenalty = 2;
     static public GameManager shared;
 	static public Player[] players {
         get {
@@ -22,9 +22,12 @@ public class GameManager : MonoBehaviour {
     static int playerIndex = 0;
 	static int direction = 1;	// init direction 1, reversed = -1
     
+    // For Progressive Uno
+    public static int ProgressiveUnoPenalty = 0;
+
     // For AR
 	private int appMode = 0;
-    public static bool IsPaused { get; private set; }
+    public static bool IsPaused { get; set; }
 
 	// current player index
     public static int PlayerIndex {
@@ -109,8 +112,8 @@ public class GameManager : MonoBehaviour {
     }
 
     // helper to create text ui
-    public static GameObject createUI(string text, string btnText) {
-        GameObject createdUI = Resources.Load<GameObject>("Prefabs/Press Continue");
+    public static GameObject CreateUI(string text, string btnText) {
+        GameObject createdUI = Resources.Load<GameObject>("Prefabs/AlertMenu");
         createdUI = Instantiate<GameObject>(createdUI, playerHolder.transform);
         createdUI.transform.SetAsLastSibling();
         createdUI.transform.localPosition = new Vector3(0, 300, 0);
@@ -124,8 +127,9 @@ public class GameManager : MonoBehaviour {
         foreach (Player player in players) {
             if(player.cardViews.Count == 0) {
                 IsPaused = true;
-                victoryUI = createUI("player " + player.playerID + " wins", "restart");
-                victoryUI.GetComponentInChildren<Button>().onClick.AddListener(StartNewGame);
+                victoryUI = CreateUI("Player " + player.playerID + " wins", "Restart");
+                victoryUI.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(StartNewGame);
+                victoryUI.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(Application.Quit);
             }
         }
     }

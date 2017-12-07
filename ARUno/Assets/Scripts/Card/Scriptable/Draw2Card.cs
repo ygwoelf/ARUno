@@ -7,7 +7,7 @@ public class Draw2Card : ColoredCard {
         if (CanJumpIn()) {
             GameManager.PlayerIndex = playerID;
         }
-        GameManager.NextPlayer.Draw(2);
-        GameManager.Skip();
+        GameManager.NextPlayer.ForceDraw(2, model.value);
+        // GameManager.Skip();
     }
 }
