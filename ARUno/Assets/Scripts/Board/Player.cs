@@ -90,7 +90,7 @@ public class Player : MonoBehaviour {
 
     // force draw from +2,+4 cards
     public void ForceDraw(int n, int cardValue) {
-        GameManager.ToggleNextPlayer();
+        GameManager.PlayerIndex = playerID;
         GameManager.ProgressiveUnoPenalty += n;
         foreach (var cv in cardViews) {
             // either has the same value or value for +4 (500)
@@ -148,9 +148,9 @@ public class Player : MonoBehaviour {
     // cancel to dismiss progressiveUno AlertMenu
     private void CancelButtonListener() {
         Draw(GameManager.ProgressiveUnoPenalty);
-        GameManager.ToggleNextPlayer();
         GameManager.ProgressiveUnoPenalty = 0;
         GameManager.IsPaused = false;
+        GameManager.ToggleNextPlayer();
         Destroy(progressiveUnoUI);
     }
 }

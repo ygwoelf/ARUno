@@ -70,7 +70,7 @@ public class CardView : MonoBehaviour, IComparable<CardView>, IPointerDownHandle
     // called when pressed for holdTime long
     private void OnLongPress() {
         if(CanBePlayed()) {
-            GameManager.CurrentPlayer.cardViews.Remove(this);
+            GameManager.players[card.playerID].cardViews.Remove(this);
             CurrentCard.SetCurrentCard(card.index);
             Destroy(gameObject);
         }
