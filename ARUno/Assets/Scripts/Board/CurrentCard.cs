@@ -36,7 +36,8 @@ public class CurrentCard : MonoBehaviour {
         }
         var arCardSpriteRenderer = arCardGO.GetComponent<SpriteRenderer>();
         arCardSpriteRenderer.sprite = model.face;
-        // arCardSpriteRenderer.color = model.getColor();
+        var arTurnArrow = GameObject.Find("ARTurnArrow");
+        arTurnArrow.transform.rotation = Quaternion.Euler(GameManager.direction * -90, 0, 0);
     }
 	
     // set top most card, if it's first card, do not play the card

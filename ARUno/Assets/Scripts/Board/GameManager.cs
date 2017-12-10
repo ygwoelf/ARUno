@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour {
     static public GameObject playerHolder;
 
     static int playerIndex = 0;
-	static int direction = 1;	// init direction 1, reversed = -1
+	public static int direction = 1;	// init direction 1, reversed = -1
     
     // For Progressive Uno
     public static int ProgressiveUnoPenalty = 0;
